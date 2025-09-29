@@ -65,6 +65,21 @@
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header-condensed {
+            padding: 0.75rem 0;
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+        }
+
+        .header-condensed .nav-container {
+            padding: 0 2rem;
+        }
+
+        .header-condensed nav {
+            display: none;
         }
 
         .nav-container {
@@ -74,6 +89,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: padding 0.3s ease;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .logo {
@@ -1112,6 +1134,10 @@
                 padding: 0 1.5rem;
             }
 
+            .header-condensed .nav-container {
+                padding: 0 1.5rem;
+            }
+
             .logo-area {
                 gap: 10px;
             }
@@ -1909,7 +1935,7 @@
         // Sayfa yüklendiğinde intro başlat
         window.addEventListener('load', function() {
             createParticles();
-            
+
             // 4.5 saniye sonra intro'yu otomatik kapat
             setTimeout(() => {
                 const intro = document.getElementById('netflixIntro');
@@ -1919,6 +1945,20 @@
                 }
             }, 4500);
         });
+
+        const headerElement = document.querySelector('header');
+        if (headerElement) {
+            const updateHeaderState = () => {
+                if (window.scrollY > 80) {
+                    headerElement.classList.add('header-condensed');
+                } else {
+                    headerElement.classList.remove('header-condensed');
+                }
+            };
+
+            window.addEventListener('scroll', updateHeaderState);
+            updateHeaderState();
+        }
 
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
