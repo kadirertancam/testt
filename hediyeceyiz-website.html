@@ -68,10 +68,18 @@
             transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
         }
 
-        header.header-condensed {
+        .header-condensed {
             padding: 0.75rem 0;
             background: rgba(15, 23, 42, 0.95);
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+        }
+
+        .header-condensed .nav-container {
+            padding: 0 2rem;
+        }
+
+        .header-condensed nav {
+            display: none;
         }
 
         .nav-container {
@@ -81,6 +89,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: padding 0.3s ease;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .logo {
@@ -1174,6 +1189,10 @@
                 padding: 0 1.5rem;
             }
 
+            .header-condensed .nav-container {
+                padding: 0 1.5rem;
+            }
+
             .logo-area {
                 gap: 10px;
             }
@@ -1971,7 +1990,7 @@
         // Sayfa yüklendiğinde intro başlat
         window.addEventListener('load', function() {
             createParticles();
-            
+
             // 4.5 saniye sonra intro'yu otomatik kapat
             setTimeout(() => {
                 const intro = document.getElementById('netflixIntro');
@@ -1990,6 +2009,7 @@
             if (!headerElement || !mobileMenu) return;
             mobileMenu.style.top = `${headerElement.offsetHeight}px`;
             mobileMenu.style.paddingTop = headerElement.classList.contains('header-condensed') ? '1.1rem' : '1.25rem';
+
         }
 
         function toggleMenu() {
