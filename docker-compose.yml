@@ -1,15 +1,26 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  hediyeceyiz-web:
+    build: .
+    container_name: hediyeceyiz-website
     ports:
-      - "8888:8888"
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    networks:
+      - hediyeceyiz-network
     volumes:
-      - .:/app
-      - /app/node_modules
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./bimi:/usr/share/nginx/html/bimi:ro
+      - ./certbot:/var/www/certbot:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
     environment:
-      NETLIFY_DEV_HOST: 0.0.0.0
-    command: ["netlify", "dev", "--port", "8888", "--host", "0.0.0.0"]
+      - TZ=Europe/Istanbul
+    labels:
+      - "com.hediyeceyiz.description=Hediyeceyiz Website"
+      - "com.hediyeceyiz.version=1.0"
+
+networks:
+  hediyeceyiz-network:
+    driver: bridge
