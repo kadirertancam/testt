@@ -15,8 +15,8 @@ exports.handler = async function(event, context) {
   }
 
   // Environment variables
-  const ETSY_API_KEY = ydxz8fti8nun292vwrx73f5w;
-  const ETSY_SHOP_ID = 62262592;
+  const ETSY_API_KEY = "ydxz8fti8nun292vwrx73f5w";
+  const ETSY_SHOP_ID = "62262592";
   
   // Validation
   if (!ETSY_API_KEY || !ETSY_SHOP_ID) {
