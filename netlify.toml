@@ -9,3 +9,15 @@
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# Ensure the root of the domain loads the SPA entry point
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# Fallback for any other route so the SPA can handle navigation
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
