@@ -65,6 +65,13 @@
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.header-condensed {
+            padding: 0.75rem 0;
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
         }
 
         .nav-container {
@@ -91,10 +98,24 @@
             50% { background-position: 100% 50%; }
         }
 
+        .header-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
         nav {
             display: flex;
             gap: 3rem;
             align-items: center;
+            margin-left: auto;
         }
 
         nav a {
@@ -1003,24 +1024,49 @@
 
         .mobile-menu-btn {
             display: none;
-            background: none;
-            border: none;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 0.55rem 0.9rem;
+            border-radius: 10px;
+            transition: background 0.3s ease, border 0.3s ease;
+            margin-left: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-btn:hover {
+            background: rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+
+        .header-condensed nav {
+            display: none;
+        }
+
+        .header-condensed .mobile-menu-btn {
+            display: flex;
         }
 
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 70px;
+            top: 90px;
             left: 0;
             width: 100%;
             background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem 2rem 2rem;
+            padding: 1.25rem 2.5rem 2.5rem;
             z-index: 999;
+            transition: top 0.3s ease, padding 0.3s ease;
+        }
+
+        header.header-condensed .mobile-menu {
+            top: 70px;
+            padding-top: 1.1rem;
         }
 
         .mobile-menu.active {
@@ -1107,6 +1153,22 @@
             }
         }
 
+        @media (min-width: 769px) {
+            .mobile-menu {
+                width: 320px;
+                left: auto;
+                right: 3rem;
+                border-radius: 18px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .mobile-menu a {
+                padding: 0.85rem 0;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 1.5rem;
@@ -1135,7 +1197,7 @@
             }
 
             .mobile-menu-btn {
-                display: block;
+                display: flex;
             }
 
             .hero {
@@ -1920,18 +1982,53 @@
             }, 4500);
         });
 
-        function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('active');
+        const headerElement = document.querySelector('header');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuButton = document.querySelector('.mobile-menu-btn');
+
+        function updateMobileMenuOffset() {
+            if (!headerElement || !mobileMenu) return;
+            mobileMenu.style.top = `${headerElement.offsetHeight}px`;
+            mobileMenu.style.paddingTop = headerElement.classList.contains('header-condensed') ? '1.1rem' : '1.25rem';
         }
+
+        function toggleMenu() {
+            if (!mobileMenu) return;
+            updateMobileMenuOffset();
+            mobileMenu.classList.toggle('active');
+        }
+
+        function handleHeaderCondensed() {
+            if (!headerElement) return;
+            const shouldCondense = window.scrollY > 120;
+
+            if (shouldCondense) {
+                headerElement.classList.add('header-condensed');
+            } else {
+                headerElement.classList.remove('header-condensed');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('active');
+                }
+            }
+
+            updateMobileMenuOffset();
+        }
+
+        handleHeaderCondensed();
+        window.addEventListener('scroll', handleHeaderCondensed);
+        window.addEventListener('resize', () => {
+            updateMobileMenuOffset();
+            if (mobileMenu && headerElement && window.innerWidth >= 1024 && !headerElement.classList.contains('header-condensed')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
-            const menu = document.getElementById('mobileMenu');
-            const btn = document.querySelector('.mobile-menu-btn');
-            
-            if (!menu.contains(event.target) && !btn.contains(event.target)) {
-                menu.classList.remove('active');
+            if (!mobileMenu || !mobileMenuButton) return;
+
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                mobileMenu.classList.remove('active');
             }
         });
 
