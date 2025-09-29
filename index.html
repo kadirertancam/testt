@@ -1002,18 +1002,28 @@
             .intro-title {
                 font-size: 2.5rem;
             }
-            
+
             .intro-subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .intro-logo {
                 width: 120px;
                 height: 120px;
             }
-            
+
             .intro-loading {
                 width: 250px;
+            }
+
+            .netflix-intro {
+                display: none;
+                animation: none;
+            }
+
+            .main-content {
+                opacity: 1;
+                animation: none;
             }
         }
 
@@ -1953,6 +1963,13 @@
 
         // Sayfa yüklendiğinde ürünleri getir (Netflix intro'dan sonra)
         window.addEventListener('load', function() {
+            const isSmallScreen = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+
+            if (isSmallScreen) {
+                loadEtsyProducts();
+                return;
+            }
+
             // Intro animasyonunun bitmesini bekle (5 saniye)
             setTimeout(function() {
                 loadEtsyProducts();
@@ -1961,7 +1978,8 @@
 
         // Eğer intro atlanırsa veya yoksa
         if (document.readyState === 'complete') {
-            setTimeout(loadEtsyProducts, 5000);
+            const isSmallScreen = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+            setTimeout(loadEtsyProducts, isSmallScreen ? 0 : 5000);
         }
 	
 	
@@ -1989,14 +2007,33 @@
 
         // Sayfa yüklendiğinde intro başlat
         window.addEventListener('load', function() {
+            const isSmallScreen = window.innerWidth <= 768 || window.matchMedia('(max-width: 768px)').matches;
+            const intro = document.getElementById('netflixIntro');
+            const mainContent = document.querySelector('.main-content');
+
+            if (isSmallScreen) {
+                if (intro) {
+                    intro.style.display = 'none';
+                }
+
+                if (mainContent) {
+                    mainContent.style.opacity = '1';
+                    mainContent.style.animation = 'none';
+                }
+
+                return;
+            }
+
             createParticles();
 
             // 4.5 saniye sonra intro'yu otomatik kapat
             setTimeout(() => {
-                const intro = document.getElementById('netflixIntro');
                 if (intro && intro.style.display !== 'none') {
                     intro.style.display = 'none';
-                    document.querySelector('.main-content').style.opacity = '1';
+                }
+
+                if (mainContent) {
+                    mainContent.style.opacity = '1';
                 }
             }, 4500);
         });
