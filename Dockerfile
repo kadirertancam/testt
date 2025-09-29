@@ -1,14 +1,16 @@
-# syntax=docker/dockerfile:1
+FROM nginx:alpine
 
-FROM node:18-alpine
+# Nginx config for SPA
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-WORKDIR /app
+# Copy website files
+COPY index.html /usr/share/nginx/html/
 
-COPY package*.json ./
-RUN npm ci && npm install --global netlify-cli
+# Expose ports
+EXPOSE 80 443
 
-COPY . .
+# Disable default healthcheck
+HEALTHCHECK NONE
 
-EXPOSE 8888
-
-CMD ["netlify", "dev", "--port", "8888", "--host", "0.0.0.0"]
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
