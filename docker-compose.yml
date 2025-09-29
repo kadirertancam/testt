@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NETLIFY_DEV_HOST: 0.0.0.0
+    command: ["netlify", "dev", "--port", "8888", "--host", "0.0.0.0"]
