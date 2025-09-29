@@ -1,0 +1,21 @@
+{
+  "name": "hediyeceyiz-website",
+  "version": "1.0.0",
+  "description": "Hediyeceyiz.com - 3D Innovation Beyond Imagination",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "etsy",
+    "3d-printing",
+    "gifts",
+    "hediyeceyiz"
+  ],
+  "author": "Hediyeceyiz",
+  "license": "ISC"
+}

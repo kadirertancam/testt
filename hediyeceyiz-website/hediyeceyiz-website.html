@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hediyeceyiz - 3D Innovation Beyond Imagination</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #ec4899;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, -50px) rotate(180deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #ec4899, #8b5cf6);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #ec4899);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        .cta-nav {
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            border-radius: 50px;
+            color: white !important;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-nav::before {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            color: #6366f1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #ec4899, #8b5cf6);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .btn-primary {
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 1.2rem 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 4rem;
+            animation: fadeInUp 0.8s ease 0.8s both;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* 3D Floating Elements */
+        .floating-3d {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+        }
+
+        .float-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 2.5rem;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .card-1 {
+            top: 0;
+            left: 0;
+            width: 250px;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            top: 150px;
+            right: 0;
+            width: 200px;
+            animation-delay: 1s;
+        }
+
+        .card-3 {
+            bottom: 50px;
+            left: 100px;
+            width: 220px;
+            animation-delay: 2s;
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.3));
+        }
+
+        .card-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Bento Grid Section */
+        .bento-section {
+            padding: 8rem 3rem;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            color: #6366f1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bento-grid {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 280px);
+            gap: 1.5rem;
+        }
+
+        .bento-item {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-10px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+        }
+
+        .bento-item:hover::before {
+            opacity: 1;
+        }
+
+        .item-1 { grid-column: 1 / 3; grid-row: 1 / 2; }
+        .item-2 { grid-column: 3 / 5; grid-row: 1 / 2; }
+        .item-3 { grid-column: 1 / 2; grid-row: 2 / 4; }
+        .item-4 { grid-column: 2 / 4; grid-row: 2 / 3; }
+        .item-5 { grid-column: 4 / 5; grid-row: 2 / 4; }
+        .item-6 { grid-column: 2 / 4; grid-row: 3 / 4; }
+
+        .bento-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.3));
+        }
+
+        .bento-item h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .bento-item p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            position: relative;
+        }
+
+        /* Products Carousel */
+        .products-section {
+            padding: 8rem 3rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(99, 102, 241, 0.05) 50%, transparent 100%);
+        }
+
+        .products-carousel {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 40px 80px rgba(99, 102, 241, 0.3);
+        }
+
+        .product-image {
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .product-content {
+            padding: 2.5rem;
+        }
+
+        .product-content h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .product-content p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .product-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #6366f1;
+        }
+
+        /* Marketplace Section */
+        .marketplace-section {
+            padding: 8rem 3rem;
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .marketplace-grid {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .marketplace-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .marketplace-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .marketplace-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 10px 20px rgba(99, 102, 241, 0.3));
+        }
+
+        .marketplace-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .marketplace-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #6366f1;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Netflix Tarzı Intro Animasyonu */
+        .netflix-intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: introFadeOut 0.8s ease-in-out 3.8s forwards;
+        }
+
+        @keyframes introFadeOut {
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+        }
+
+        .intro-content {
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .intro-logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: logoScale 3s ease-in-out;
+        }
+
+        .intro-logo-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes logoScale {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            20% {
+                transform: scale(0.5) rotate(-90deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2) rotate(0deg);
+                opacity: 1;
+            }
+            70% {
+                transform: scale(0.9) rotate(0deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .intro-logo::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #a855f7, #3b82f6, #06b6d4, #a855f7);
+            background-size: 400% 400%;
+            animation: gradientRotate 2s linear infinite, pulseRing 3s ease-in-out;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pulseRing {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .intro-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a855f7, #3b82f6, #06b6d4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: titleSlide 2s ease-out 0.5s backwards, gradientShift 3s ease infinite 1s;
+        }
+
+        @keyframes titleSlide {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+                filter: blur(10px);
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+		.intro-logo img {
+			width: 150px;   /* intro’da logonun boyutu */
+			height: auto;   /* oranı korusun */
+			border-radius: 50%;
+			background: rgba(255,255,255,0.05);
+			padding: 10px;
+		}
+        .intro-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: subtitleFade 2s ease-out 1s backwards;
+        }
+
+        @keyframes subtitleFade {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 0.8;
+            }
+        }
+
+        .intro-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #a855f7, #3b82f6, #06b6d4);
+            border-radius: 50%;
+            animation: particleFloat 8s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Loading Bar */
+        .intro-loading {
+            position: absolute;
+            bottom: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #a855f7, #3b82f6, #06b6d4);
+            border-radius: 2px;
+            animation: loadingProgress 3s ease-in-out;
+        }
+
+        @keyframes loadingProgress {
+            0% {
+                width: 0%;
+                transform: translateX(-100%);
+            }
+            50% {
+                width: 60%;
+                transform: translateX(0);
+            }
+            100% {
+                width: 100%;
+                transform: translateX(0);
+            }
+        }
+
+        /* Ana İçerik Başlangıçta Gizli */
+        .main-content {
+            opacity: 0;
+            animation: mainContentFadeIn 1s ease-in-out 4s forwards;
+        }
+
+        @keyframes mainContentFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Skip Button */
+        .skip-intro {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: skipButtonFade 1s ease-out 2s backwards;
+        }
+
+        @keyframes skipButtonFade {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .skip-intro:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Mobil için intro ayarları */
+        @media (max-width: 768px) {
+            .intro-title {
+                font-size: 2.5rem;
+            }
+            
+            .intro-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .intro-logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .intro-loading {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-title {
+                font-size: 2rem;
+            }
+            
+            .intro-subtitle {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+            
+            .intro-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .intro-loading {
+                width: 200px;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem 2rem;
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-weight: 500;
+        }
+
+        /* CEO-Friendly Metrics Section */
+        .metrics-section {
+            padding: 6rem 3rem;
+            background: rgba(99, 102, 241, 0.03);
+        }
+
+        .metrics-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .metric-change {
+            color: #10b981;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .floating-3d { display: none; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero-content { max-width: 100%; }
+            
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+            .bento-item {
+                grid-column: auto !important;
+                grid-row: auto !important;
+            }
+            
+            .products-carousel {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .marketplace-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo-area {
+                gap: 10px;
+            }
+
+            .logo-area > div {
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+            }
+
+            .tagline {
+                font-size: 0.7rem !important;
+                padding-left: 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 10rem 1.5rem 3rem;
+                min-height: auto;
+            }
+
+            .hero-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-stats {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .bento-section,
+            .products-section,
+            .marketplace-section,
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .bento-item {
+                padding: 2rem;
+            }
+
+            .bento-icon {
+                font-size: 3rem;
+            }
+
+            .bento-item h3 {
+                font-size: 1.4rem;
+            }
+
+            .products-carousel {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 220px;
+                font-size: 4rem;
+            }
+
+            .product-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .metric-card {
+                padding: 2rem;
+            }
+
+            .metric-value {
+                font-size: 2.5rem;
+            }
+
+            .marketplace-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .marketplace-card {
+                padding: 2rem;
+            }
+
+            .marketplace-icon {
+                font-size: 3rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section p {
+                font-size: 1.1rem;
+            }
+
+            .cta-section > div > div {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-section .btn-primary,
+            .cta-section .btn-secondary {
+                width: 100%;
+            }
+
+            #contactForm {
+                padding: 0 1rem;
+            }
+
+            #contactForm > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            footer {
+                padding: 3rem 1.5rem 1.5rem;
+            }
+        }
+
+                    @media (max-width: 480px) {
+            .intro-loading {
+                width: 200px;
+                bottom: 60px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-img {
+				width: 40px;   /* istediğin sabit boyut */
+				height: auto;  /* oranı korusun */
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+            .mobile-menu-btn {
+                font-size: 1.5rem;
+            }
+
+            .footer-logo {
+                width: 35px;
+                height: 35px;
+            }
+
+            .footer-brand h3 {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 11rem 1.5rem 3rem;
+            }
+
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.35rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Netflix Tarzı Intro -->
+    <div class="netflix-intro" id="netflixIntro">
+        <div class="intro-particles" id="introParticles"></div>
+        
+        <div class="intro-content">
+            <div class="intro-logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a855f7;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2306b6d4;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='url(%23grad1)' stroke-width='8'/%3E%3Ctext x='100' y='135' font-family='Arial, sans-serif' font-size='100' font-weight='bold' text-anchor='middle' fill='url(%23grad1)'%3EHC%3C/text%3E%3C/svg%3E" 
+                     alt="HC Logo" style="width: 100%; height: 100%; border-radius: 50%; background: rgba(255,255,255,0.05); padding: 10px;">
+            </div>
+            
+            <h1 class="intro-title">HEDIYECEYIZ</h1>
+            <p class="intro-subtitle">3D INNOVATION BEYOND IMAGINATION</p>
+            
+            <div class="intro-loading">
+                <div class="loading-bar"></div>
+            </div>
+        </div>
+        
+        <button class="skip-intro" onclick="skipIntro()">İntro'yu Geç</button>
+    </div>
+
+    <!-- Ana İçerik -->
+    <div class="main-content">
+
+    <header>
+        <div class="nav-container">
+            <div class="header-content">
+                <div class="logo-area">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a855f7;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2306b6d4;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='url(%23grad1)' stroke-width='8'/%3E%3Ctext x='100' y='135' font-family='Arial, sans-serif' font-size='100' font-weight='bold' text-anchor='middle' fill='url(%23grad1)'%3EHC%3C/text%3E%3C/svg%3E" alt="HC Logo" class="logo-img" style="height: 60px;">
+                    <div class="logo">HEDIYECEYIZ</div>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <nav>
+                    <a href="#anasayfa">Ana Sayfa</a>
+                    <a href="#metrikler">Performans</a>
+                    <a href="#ozellikler">Özellikler</a>
+                    <a href="#urunler">Ürünler</a>
+                    <a href="#pazaryerleri">Pazaryerleri</a>
+                    <a href="#iletisim" class="cta-nav">İletişim</a>
+                </nav>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#anasayfa" onclick="toggleMenu()">Ana Sayfa</a>
+            <a href="#metrikler" onclick="toggleMenu()">Performans</a>
+            <a href="#ozellikler" onclick="toggleMenu()">Özellikler</a>
+            <a href="#urunler" onclick="toggleMenu()">Ürünler</a>
+            <a href="#pazaryerleri" onclick="toggleMenu()">Pazaryerleri</a>
+            <a href="#iletisim" onclick="toggleMenu()">İletişim</a>
+        </div>
+    </header>
+
+    <section class="hero" id="anasayfa">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🚀 3D Innovation Beyond Imagination</div>
+                <h1>
+                    Hayalleri <span class="gradient-text">3D</span> ile<br>
+                    Gerçeğe Dönüştürüyoruz
+                </h1>
+                <p>
+                    En ileri 3D baskı teknolojisi ile benzersiz, kişiselleştirilmiş hediye çözümleri üretiyoruz. 
+                    Her detayı özenle tasarlıyor, kaliteyi zirveye taşıyoruz.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#iletisim" class="btn-primary">İletişime Geç</a>
+                    <a href="#urunler" class="btn-secondary">Ürünleri İncele</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">750+</span>
+                        <span class="stat-label">Benzersiz Ürün</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15K+</span>
+                        <span class="stat-label">Mutlu Müşteri</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Lider Platform</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="floating-3d">
+            <div class="float-card card-1">
+                <div class="card-icon">🎨</div>
+                <div class="card-title">Custom Design</div>
+                <div class="card-desc">Özel tasarım, sınırsız imkan</div>
+            </div>
+            <div class="float-card card-2">
+                <div class="card-icon">⚡</div>
+                <div class="card-title">Fast Production</div>
+                <div class="card-desc">Hızlı üretim, zamanında teslimat</div>
+            </div>
+            <div class="float-card card-3">
+                <div class="card-icon">💎</div>
+                <div class="card-title">Premium Quality</div>
+                <div class="card-desc">%100 kalite garantisi</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metrics-section" id="metrikler">
+        <div class="section-title">
+            <div class="section-subtitle">Performans Göstergeleri</div>
+            <h2>Büyüme ve Başarı Metrikleri</h2>
+            <p>Veriye dayalı karar almanızı sağlayacak iş metrikleri</p>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">750+</div>
+                <div class="metric-label">Aktif Ürün SKU</div>
+                <div class="metric-change">↑ %35 YTD</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">15K+</div>
+                <div class="metric-label">Toplam Müşteri Tabanı</div>
+                <div class="metric-change">↑ %58 YoY</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">4.8★</div>
+                <div class="metric-label">Müşteri Memnuniyeti</div>
+                <div class="metric-change">2.5K+ Değerlendirme</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">98%</div>
+                <div class="metric-label">Zamanında Teslimat</div>
+                <div class="metric-change">Industry Leading</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bento-section" id="ozellikler">
+        <div class="section-title">
+            <div class="section-subtitle">Neden Bizi Seçmelisiniz?</div>
+            <h2>Fark Yaratan Özellikler</h2>
+            <p>Teknoloji ve yaratıcılığı birleştirerek sektörde öncü konumdayız</p>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-item item-1">
+                <span class="bento-icon">🔬</span>
+                <h3>Son Teknoloji</h3>
+                <p>Endüstri 4.0 standartlarında 3D baskı teknolojisi ile mikron hassasiyetinde üretim</p>
+            </div>
+            <div class="bento-item item-2">
+                <span class="bento-icon">🎯</span>
+                <h3>Müşteri Odaklı</h3>
+                <p>Her projeyi benzersiz kılan, tamamen kişiselleştirilebilir çözümler</p>
+            </div>
+            <div class="bento-item item-3">
+                <span class="bento-icon">🛡️</span>
+                <h3>Kalite Güvencesi</h3>
+                <p>ISO sertifikalı üretim, premium malzemeler ve detaylı kalite kontrol</p>
+            </div>
+            <div class="bento-item item-4">
+                <span class="bento-icon">🚀</span>
+                <h3>Hızlı & Güvenilir</h3>
+                <p>Express teslimat seçenekleri ile Türkiye'nin her yerine güvenli kargo</p>
+            </div>
+            <div class="bento-item item-5">
+                <span class="bento-icon">🌟</span>
+                <h3>Sürdürülebilir</h3>
+                <p>Çevre dostu malzemeler ve enerji verimli üretim prosesleri</p>
+            </div>
+            <div class="bento-item item-6">
+                <span class="bento-icon">💼</span>
+                <h3>Kurumsal Çözümler</h3>
+                <p>B2B müşteriler için özel hacimli üretim ve fiyatlandırma imkanları</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="urunler">
+        <div class="section-title">
+            <div class="section-subtitle">Ürün Portföyü</div>
+            <h2>Premium Koleksiyonlar</h2>
+            <p>Her biri özenle tasarlanmış, yüksek kaliteli 3D ürünlerimiz</p>
+        </div>
+        <div class="products-carousel">
+            <div class="product-card">
+                <div class="product-image">🖼️</div>
+                <div class="product-content">
+                    <h3>Signature Çerçeveler</h3>
+                    <p>İsim, tarih ve özel mesajlarla tamamen kişiselleştirilebilir lüks 3D çerçeveler ve duvar süsleri</p>
+                    <div class="product-tags">
+                        <span class="tag">Trendyol</span>
+                        <span class="tag">N11</span>
+                        <span class="tag">Hepsiburada</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🏆</div>
+                <div class="product-content">
+                    <h3>Exclusive Dekoratif</h3>
+                    <p>Modern minimalist tasarım felsefesiyle yaratılmış ev ve ofis dekorasyon objeleri</p>
+                    <div class="product-tags">
+                        <span class="tag">Trendyol</span>
+                        <span class="tag">N11</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🎨</div>
+                <div class="product-content">
+                    <h3>Celebration Collection</h3>
+                    <p>Doğum günü, yıldönümü ve milestone anlar için unutulmaz tasarım hediyelikler</p>
+                    <div class="product-tags">
+                        <span class="tag">Trendyol</span>
+                        <span class="tag">Hepsiburada</span>
+                        <span class="tag">Çiçeksepeti</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">💍</div>
+                <div class="product-content">
+                    <h3>Jewelry & Accessories</h3>
+                    <p>Geometrik formlar ve modern estetikte üretilmiş designer takı koleksiyonu</p>
+                    <div class="product-tags">
+                        <span class="tag">Trendyol</span>
+                        <span class="tag">N11</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🎁</div>
+                <div class="product-content">
+                    <h3>Corporate Gift Sets</h3>
+                    <p>Kurumsal kimliğinizi yansıtan özel tasarım, prestijli hediye paketleri</p>
+                    <div class="product-tags">
+                        <span class="tag">Hepsiburada</span>
+                        <span class="tag">Çiçeksepeti</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-content">
+                    <h3>Tech Accessories Pro</h3>
+                    <p>Fonksiyonel ve estetik teknoloji aksesuarları: stand, tutucu ve organizerlar</p>
+                    <div class="product-tags">
+                        <span class="tag">Trendyol</span>
+                        <span class="tag">N11</span>
+                        <span class="tag">Hepsiburada</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="marketplace-section" id="pazaryerleri">
+        <div class="section-title">
+            <div class="section-subtitle">Satış Kanallarımız</div>
+            <h2>Türkiye'nin Lider Platformlarında</h2>
+            <p>Güvenilir e-ticaret devleriyle stratejik iş ortaklıklarımız</p>
+        </div>
+        <div class="marketplace-grid">
+            <div class="marketplace-card">
+                <div class="marketplace-icon">🛍️</div>
+                <h3>Trendyol</h3>
+                <p>Türkiye'nin #1 e-ticaret platformu</p>
+            </div>
+            <div class="marketplace-card">
+                <div class="marketplace-icon">🛒</div>
+                <h3>Hepsiburada</h3>
+                <p>Hızlı teslimat ve geniş erişim</p>
+            </div>
+            <div class="marketplace-card">
+                <div class="marketplace-icon">📦</div>
+                <h3>N11</h3>
+                <p>Güvenli alışveriş deneyimi</p>
+            </div>
+            <div class="marketplace-card">
+                <div class="marketplace-icon">🌸</div>
+                <h3>Çiçeksepeti</h3>
+                <p>Hediye kategorisinde lider marka</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="iletisim">
+        <div class="cta-content">
+            <h2>
+                Hayalinizdeki Projeyi<br>
+                <span class="gradient-text">Birlikte Gerçekleştirelim</span>
+            </h2>
+            <p>
+                Kurumsal siparişleriniz, özel tasarım talepleriniz ve iş ortaklığı fırsatları için 
+                uzman ekibimiz sizinle iletişime geçmeye hazır
+            </p>
+            
+            <form id="contactForm" style="max-width: 700px; margin: 3rem auto 0; text-align: left;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <input type="text" id="name" name="name" placeholder="Ad Soyad *" required
+                            style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; color: white; font-size: 1rem; font-family: 'Inter', sans-serif;">
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="E-posta Adresiniz *" required
+                            style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; color: white; font-size: 1rem; font-family: 'Inter', sans-serif;">
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <input type="tel" id="phone" name="phone" placeholder="Telefon" 
+                            style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; color: white; font-size: 1rem; font-family: 'Inter', sans-serif;">
+                    </div>
+                    <div>
+                        <input type="text" id="company" name="company" placeholder="Firma Adı" 
+                            style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; color: white; font-size: 1rem; font-family: 'Inter', sans-serif;">
+                    </div>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <select id="subject" name="subject" required
+                        style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; color: white; font-size: 1rem; font-family: 'Inter', sans-serif;">
+                        <option value="" style="background: #1e293b;">Konu Seçiniz *</option>
+                        <option value="Kurumsal Sipariş" style="background: #1e293b;">Kurumsal Sipariş</option>
+                        <option value="Özel Tasarım" style="background: #1e293b;">Özel Tasarım Talebi</option>
+                        <option value="Toptan Satış" style="background: #1e293b;">Toptan Satış</option>
+                        <option value="İş Ortaklığı" style="background: #1e293b;">İş Ortaklığı</option>
+                        <option value="Diğer" style="background: #1e293b;">Diğer</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <textarea id="message" name="message" placeholder="Mesajınız *" required rows="6"
+                        style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 15px; color: white; font-size: 1rem; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+                </div>
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-family: 'Inter', sans-serif;">
+                        Mesaj Gönder
+                    </button>
+                </div>
+                <div id="formMessage" style="margin-top: 1.5rem; text-align: center; display: none; padding: 1rem; border-radius: 10px;"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a855f7;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2306b6d4;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='100' cy='100' r='90' fill='none' stroke='url(%23grad1)' stroke-width='8'/%3E%3Ctext x='100' y='135' font-family='Arial, sans-serif' font-size='100' font-weight='bold' text-anchor='middle' fill='url(%23grad1)'%3EHC%3C/text%3E%3C/svg%3E" alt="HC Logo" class="footer-logo">
+                    HEDIYECEYIZ
+                </h3>
+                <p>3D baskı teknolojisinin öncüsü, Türkiye'nin en yenilikçi hediyelik eşya üreticisi. Premium tasarım, kusursuz kalite ve müşteri memnuniyeti odaklı hizmet anlayışımızla sektörde fark yaratıyoruz.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Kurumsal</h4>
+                <a href="#anasayfa">Hakkımızda</a>
+                <a href="#metrikler">Performans Metrikleri</a>
+                <a href="#iletisim">İletişim</a>
+                <a href="#ozellikler">Teknolojimiz</a>
+            </div>
+            <div class="footer-links">
+                <h4>Hizmetler</h4>
+                <a href="#urunler">Ürün Kataloğu</a>
+                <a href="#iletisim">Özel Tasarım</a>
+                <a href="#iletisim">Toptan Satış</a>
+                <a href="#iletisim">B2B Çözümler</a>
+            </div>
+            <div class="footer-links">
+                <h4>Destek</h4>
+                <a href="#iletisim">Soru Sor</a>
+                <a href="#pazaryerleri">Satış Kanalları</a>
+                <a href="#metrikler">Güvenilirlik</a>
+                <a href="mailto:info@hediyeceyiz.com">E-posta Gönder</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Hediyeceyiz.com - Tüm Hakları Saklıdır | 3D Technology & Innovation Beyond Imagination</p>
+        </div>
+    </footer>
+
+    </div> <!-- Ana İçerik Sonu -->
+
+    <script>
+	
+	    // Loading spinner CSS
+        const spinnerStyle = document.createElement('style');
+        spinnerStyle.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .loading-spinner {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border: 4px solid rgba(99, 102, 241, 0.3);
+                border-top-color: #6366f1;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+        `;
+        document.head.appendChild(spinnerStyle);
+
+        // Etsy Ürünlerini Yükleme Fonksiyonu
+        async function loadEtsyProducts() {
+            const productContainer = document.querySelector('.products-carousel');
+            
+            if (!productContainer) {
+                console.error('Product container not found');
+                return;
+            }
+            
+            // Loading state göster
+            productContainer.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+                    <div class="loading-spinner"></div>
+                    <p style="margin-top: 1.5rem; color: rgba(255, 255, 255, 0.7); font-size: 1.1rem;">
+                        Etsy'den ürünler yükleniyor...
+                    </p>
+                </div>
+            `;
+
+            try {
+                console.log('Fetching products from Netlify function...');
+                
+                const response = await fetch('/.netlify/functions/etsy-products', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('API Response:', data);
+
+                if (!data.success) {
+                    throw new Error(data.error || 'Ürünler yüklenemedi');
+                }
+
+                // Ürünleri göster
+                if (data.products && data.products.length > 0) {
+                    productContainer.innerHTML = data.products.map(product => `
+                        <div class="product-card" data-product-id="${product.id}">
+                            <div class="product-image" style="${product.image 
+                                ? `background: url('${product.image}') center/cover;` 
+                                : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); display: flex; align-items: center; justify-content: center;'
+                            }">
+                                ${!product.image ? '<div style="font-size: 5rem;">🎁</div>' : ''}
+                            </div>
+                            <div class="product-content">
+                                <h3>${product.title}</h3>
+                                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem; margin-bottom: 1rem;">
+                                    ${product.description}
+                                </p>
+                                <div class="product-tags" style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+                                    <span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 1.1rem; font-weight: 700;">
+                                        ${product.price.currency} ${product.price.amount}
+                                    </span>
+                                    <a href="${product.url}" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer" 
+                                       class="tag" 
+                                       style="background: linear-gradient(135deg, #6366f1, #ec4899); color: white; cursor: pointer; text-decoration: none; border: none; transition: transform 0.3s;"
+                                       onmouseover="this.style.transform='translateY(-2px)'"
+                                       onmouseout="this.style.transform='translateY(0)'">
+                                        Etsy'de Gör →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    console.log(`Successfully loaded ${data.products.length} products`);
+                } else {
+                    productContainer.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+                            <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.2rem;">
+                                Henüz ürün bulunmuyor.
+                            </p>
+                            <p style="color: rgba(255, 255, 255, 0.5); margin-top: 1rem;">
+                                Etsy mağazanıza ürün ekledikten sonra burada görünecektir.
+                            </p>
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                console.error('Etsy products loading error:', error);
+                
+                productContainer.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 4rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                        <p style="color: #ef4444; margin-bottom: 1rem; font-size: 1.1rem; font-weight: 600;">
+                            Ürünler yüklenirken bir hata oluştu
+                        </p>
+                        <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 2rem; font-size: 0.9rem;">
+                            ${error.message}
+                        </p>
+                        <a href="https://www.etsy.com/shop/YOURSHOP" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           style="display: inline-block; background: linear-gradient(135deg, #6366f1, #ec4899); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; transition: transform 0.3s;"
+                           onmouseover="this.style.transform='translateY(-2px)'"
+                           onmouseout="this.style.transform='translateY(0)'">
+                            Etsy Mağazamızı Ziyaret Edin
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Sayfa yüklendiğinde ürünleri getir (Netflix intro'dan sonra)
+        window.addEventListener('load', function() {
+            // Intro animasyonunun bitmesini bekle (5 saniye)
+            setTimeout(function() {
+                loadEtsyProducts();
+            }, 5000);
+        });
+
+        // Eğer intro atlanırsa veya yoksa
+        if (document.readyState === 'complete') {
+            setTimeout(loadEtsyProducts, 5000);
+        }
+	
+	
+        // Netflix Intro Animasyonu
+        function createParticles() {
+            const particlesContainer = document.getElementById('introParticles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function skipIntro() {
+            const intro = document.getElementById('netflixIntro');
+            intro.style.animation = 'introFadeOut 0.5s ease-in-out forwards';
+            setTimeout(() => {
+                intro.style.display = 'none';
+                document.querySelector('.main-content').style.opacity = '1';
+            }, 500);
+        }
+
+        // Sayfa yüklendiğinde intro başlat
+        window.addEventListener('load', function() {
+            createParticles();
+            
+            // 4.5 saniye sonra intro'yu otomatik kapat
+            setTimeout(() => {
+                const intro = document.getElementById('netflixIntro');
+                if (intro && intro.style.display !== 'none') {
+                    intro.style.display = 'none';
+                    document.querySelector('.main-content').style.opacity = '1';
+                }
+            }, 4500);
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            
+            if (!menu.contains(event.target) && !btn.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:info@hediyeceyiz.com?subject=${encodeURIComponent(formData.subject + ' - ' + formData.name)}&body=${encodeURIComponent(
+                `Ad Soyad: ${formData.name}\n` +
+                `E-posta: ${formData.email}\n` +
+                `Telefon: ${formData.phone || 'Belirtilmedi'}\n` +
+                `Firma: ${formData.company || 'Belirtilmedi'}\n` +
+                `Konu: ${formData.subject}\n\n` +
+                `Mesaj:\n${formData.message}`
+            )}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.style.display = 'block';
+            messageDiv.style.background = 'rgba(16, 185, 129, 0.2)';
+            messageDiv.style.border = '1px solid rgba(16, 185, 129, 0.5)';
+            messageDiv.style.color = '#10b981';
+            messageDiv.innerHTML = '✓ E-posta istemciniz açılıyor... Mesajınızı göndermek için e-posta uygulamanızdan gönder butonuna tıklayın.';
+            
+            // Reset form
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                messageDiv.style.display = 'none';
+            }, 5000);
+        });
+		
+    </script>
+</body>
+</html>
