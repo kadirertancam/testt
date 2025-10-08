@@ -1,0 +1,21 @@
+{
+  "name": "Hediyeceyiz - 3D Baskı Hediye Çözümleri",
+  "short_name": "Hediyeceyiz",
+  "description": "En ileri 3D baskı teknolojisi ile benzersiz, kişiselleştirilmiş hediye çözümleri",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
