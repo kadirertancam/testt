@@ -140,6 +140,47 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "3D baskı hediyeler için üretim süresi ne kadar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standart siparişlerde üretim 3-5 iş günü içinde tamamlanır. Kurumsal ve yüksek adetli siparişlerde proje takvimine göre hızlandırılmış üretim planı oluştururuz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hangi materyaller ile çalışıyorsunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PLA, PETG ve reçine gibi dayanıklı malzemeler kullanıyoruz. Kullanım alanına göre ahşap veya metal bileşenlerle hibrit çözümler de geliştiriyoruz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kişiye özel tasarım nasıl onaylanıyor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tasarım ekibimiz 3D model önizlemelerini size sunar. Onayınızdan sonra prototip baskı alarak nihai üretime geçeriz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pazaryerleri için SEO uyumlu içerik sağlıyor musunuz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Trendyol, Hepsiburada, N11 ve Çiçeksepeti mağazalarınızda kullanmanız için ürün başlığı, açıklama ve anahtar kelime önerileri hazırlıyoruz."
+          }
+        }
+      ]
+    }
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
         
@@ -724,6 +765,156 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: #6366f1;
+        }
+
+        /* SEO Content Section */
+        .seo-section {
+            padding: 8rem 3rem;
+        }
+
+        .seo-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            padding: 4rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .seo-wrapper h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .seo-intro {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .seo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .seo-card {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .seo-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(99, 102, 241, 0.12));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .seo-card:hover::before {
+            opacity: 1;
+        }
+
+        .seo-card h3 {
+            position: relative;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .seo-card p,
+        .seo-card ul {
+            position: relative;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .seo-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .seo-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .seo-card li::before {
+            content: '✔';
+            color: #38bdf8;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 8rem 3rem;
+            background: rgba(15, 23, 42, 0.75);
+        }
+
+        .faq-grid {
+            max-width: 900px;
+            margin: 3.5rem auto 0;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .faq-grid details {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.8rem 2.2rem;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .faq-grid details[open] {
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 25px 45px rgba(99, 102, 241, 0.2);
+        }
+
+        .faq-grid summary {
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+        }
+
+        .faq-grid summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-grid summary::after {
+            content: '+';
+            float: right;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-grid details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-grid p {
+            margin-top: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
         }
 
         /* Marketplace Section */
@@ -1315,6 +1506,14 @@
             .marketplace-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .seo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seo-wrapper {
+                padding: 3rem;
+            }
         }
 
         @media (min-width: 769px) {
@@ -1487,6 +1686,22 @@
                 font-size: 3rem;
             }
 
+            .seo-wrapper {
+                padding: 2.5rem 1.8rem;
+            }
+
+            .seo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-section {
+                padding: 6rem 1.5rem;
+            }
+
+            .faq-grid details {
+                padding: 1.4rem 1.6rem;
+            }
+
             .cta-section h2 {
                 font-size: 2rem;
             }
@@ -1610,7 +1825,7 @@
                      alt="Hediyeceyiz Logo - 3D Baskı Hediye Çözümleri" style="width: 100%; height: 100%; border-radius: 50%; background: rgba(255,255,255,0.05); padding: 10px;">
             </div>
             
-            <h1 class="intro-title">HEDIYECEYIZ</h1>
+            <p class="intro-title" role="heading" aria-level="1">HEDIYECEYIZ</p>
             <p class="intro-subtitle">3D INNOVATION BEYOND IMAGINATION</p>
             
             <div class="intro-loading" style="margin-bottom: 20px;">
@@ -1638,6 +1853,7 @@
                     <a href="#metrikler">Performans</a>
                     <a href="#ozellikler">Özellikler</a>
                     <a href="#urunler">Ürünler</a>
+                    <a href="#sss">SSS</a>
                     <a href="#pazaryerleri">Pazaryerleri</a>
                     <a href="#iletisim" class="cta-nav">İletişim</a>
                 </nav>
@@ -1648,6 +1864,7 @@
             <a href="#metrikler" onclick="toggleMenu()">Performans</a>
             <a href="#ozellikler" onclick="toggleMenu()">Özellikler</a>
             <a href="#urunler" onclick="toggleMenu()">Ürünler</a>
+            <a href="#sss" onclick="toggleMenu()">SSS</a>
             <a href="#pazaryerleri" onclick="toggleMenu()">Pazaryerleri</a>
             <a href="#iletisim" onclick="toggleMenu()">İletişim</a>
         </div>
@@ -1856,6 +2073,73 @@
                         </div>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <section class="seo-section" id="seo-icerik" role="region" aria-label="3D Baskı Hediye Stratejileri">
+            <div class="seo-wrapper">
+                <div class="section-subtitle">3D Baskı Uzmanlığı</div>
+                <h2>3D Baskı Hediye Üretiminde Stratejik Yaklaşımımız</h2>
+                <p class="seo-intro">
+                    Hediyeceyiz, kişiye özel 3D baskı hediyeler geliştirirken marka kimliğinizi güçlendiren, arama motoru trendleri ile uyumlu
+                    içerikler oluşturur. Tasarımdan paketlemeye kadar tüm süreci dijital pazarlama hedeflerinizle hizalıyor, Trendyol ve Hepsiburada gibi
+                    pazaryerlerinde daha görünür olmanıza yardımcı oluyoruz.
+                </p>
+                <div class="seo-grid">
+                    <article class="seo-card" aria-label="Kişiye Özel Tasarım Süreci">
+                        <h3>Kişiye Özel Tasarım Süreci</h3>
+                        <p>Markanızın hikâyesini anlatan 3D baskı hediyeler için uçtan uca tasarım yönetimi sağlıyoruz.</p>
+                        <ul>
+                            <li>Kurumsal kimliğinize uygun renk ve malzeme seçimi</li>
+                            <li>SEO odaklı ürün başlığı ve açıklama önerileri</li>
+                            <li>Özel gün, davet ve etkinliklere yönelik kişiselleştirme</li>
+                        </ul>
+                    </article>
+                    <article class="seo-card" aria-label="3D Baskı Teknolojileri">
+                        <h3>3D Baskı Teknolojileri</h3>
+                        <p>FDM, SLA ve reçine baskı altyapımız ile dayanıklı ve estetik ürünler ortaya çıkarıyoruz.</p>
+                        <ul>
+                            <li>0.05 mm hassasiyet ile detaylı modelleme ve prototip</li>
+                            <li>Çevre dostu biyobozunur filament seçenekleri</li>
+                            <li>Seri üretime uygun kalite kontrol raporları</li>
+                        </ul>
+                    </article>
+                    <article class="seo-card" aria-label="Dijital Pazarlama Destekleri">
+                        <h3>Dijital Pazarlama Destekleri</h3>
+                        <p>Ürünlerinizi e-ticaret kanallarında öne çıkaracak stratejik içerikler ve görseller hazırlıyoruz.</p>
+                        <ul>
+                            <li>Arama hacmi yüksek anahtar kelime analizleri</li>
+                            <li>360° ürün fotoğrafı ve video storyboard planlaması</li>
+                            <li>Satış sonrası otomasyon ve müşteri memnuniyeti takibi</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="sss" role="region" aria-label="Sıkça Sorulan Sorular">
+            <div class="section-title">
+                <div class="section-subtitle">SSS</div>
+                <h2>3D Baskı Hediyeler Hakkında Merak Ettikleriniz</h2>
+                <p>Satın alma ve üretim süreçlerimize dair en sık sorulan soruları yanıtladık.</p>
+            </div>
+            <div class="faq-grid">
+                <details>
+                    <summary>3D baskı hediyeler için üretim süresi ne kadar?</summary>
+                    <p>Standart siparişlerde üretim 3-5 iş günü içinde tamamlanır. Kurumsal ve yüksek adetli siparişlerde proje takvimine göre hızlandırılmış üretim planı oluştururuz.</p>
+                </details>
+                <details>
+                    <summary>Hangi materyaller ile çalışıyorsunuz?</summary>
+                    <p>PLA, PETG ve reçine gibi dayanıklı malzemeler kullanıyoruz. Kullanım alanına göre ahşap veya metal bileşenlerle hibrit çözümler de geliştiriyoruz.</p>
+                </details>
+                <details>
+                    <summary>Kişiye özel tasarım nasıl onaylanıyor?</summary>
+                    <p>Tasarım ekibimiz 3D model önizlemelerini size sunar. Onayınızdan sonra prototip baskı alarak nihai üretime geçeriz.</p>
+                </details>
+                <details>
+                    <summary>Pazaryerleri için SEO uyumlu içerik sağlıyor musunuz?</summary>
+                    <p>Evet. Trendyol, Hepsiburada, N11 ve Çiçeksepeti mağazalarınızda kullanmanız için ürün başlığı, açıklama ve anahtar kelime önerileri hazırlıyoruz.</p>
+                </details>
             </div>
         </section>
 
